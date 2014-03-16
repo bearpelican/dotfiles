@@ -1,0 +1,47 @@
+[alias]
+       lc = log ORIG_HEAD.. --stat --no-merges
+       cp = cherry-pick
+       ci = commit
+       st = status
+       co = checkout
+       rb = rebase
+       rbi = rebase -i
+       rba = rebase --abort
+       rbc = rebase --continue
+       log = log --decorate
+       lol = log --graph --decorate --pretty=oneline --abbrev-commit
+       lola = log --all  --graph --decorate --pretty=oneline --abbrev-commit
+       svnci = svn dcommit
+       svnup = svn fetch
+       svnst = log trunk..
+       br = !sh -c 'git branch --color $* | grep -v " z-"' -
+       diffn = diff --no-ext-diff
+       dt = difftool
+       resolve = !git-resolve
+       wtf = !git-wtf
+[user]
+	email = andrew.t.shaw@gmail.com
+	name = Andrew Shaw
+[color]
+    ui = auto
+	diff = auto
+	status = auto
+	branch = auto
+[core]
+	whitespace = -trailing-space    
+	autocrlf = input
+	editor = emacs
+[push]
+	default = matching
+[diff]
+#	tool = vimdiff
+	tool = ediff
+#	external = ~/tools/opendiff-git.sh
+[difftool "ediff"]
+	cmd = ~/.emacs.d/extensions/ediff.sh $LOCAL $REMOTE $MERGED
+[merge]
+#	tool = xxdiff
+	tool = ediff
+[mergetool "ediff"]
+	cmd = ~/.emacs.d/extensions/ediff.sh $LOCAL $REMOTE $MERGED
+	trustExitCode = true
