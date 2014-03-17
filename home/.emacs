@@ -20,11 +20,8 @@
 ;ediff
 (setq ediff-split-window-function 'split-window-horizontally)
 
-;list
-(setq inferior-lisp-program "sbcl")
-(add-to-list 'load-path "~/quicklisp")
-(require 'slime-autoloads)
-(slime-setup)
+; activate all the packages (in particular autoloads)
+(package-initialize)
 
 ;autopair
 (require 'autopair)
@@ -34,6 +31,12 @@
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("marmalade" . "http://marmalade-repo.org/packages/")
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
+
+;lisp
+(setq inferior-lisp-program "sbcl")
+(add-to-list 'load-path "~/quicklisp")
+(require 'slime-autoloads)
+(slime-setup)
 
 ;jade
 (add-to-list 'load-path "~/.emacs.d/vendor/jade-mode")
