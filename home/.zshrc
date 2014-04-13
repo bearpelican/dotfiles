@@ -1,6 +1,10 @@
 # Path to your oh-my-zsh configuration
 ZSH=$HOME/.oh-my-zsh
 
+#zsh plugins
+plugins=(git osx)
+
+
 ################################################################### zsh
 HISTFILE=~/.histfile
 HISTSIZE=10000

@@ -2,7 +2,8 @@
        lc = log ORIG_HEAD.. --stat --no-merges
        cp = cherry-pick
        ci = commit
-       st = status
+       st = status -sb
+       status = status -sb
        co = checkout
        rb = rebase
        rbi = rebase -i
