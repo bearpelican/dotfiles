@@ -2,9 +2,9 @@
        lc = log ORIG_HEAD.. --stat --no-merges
        cp = cherry-pick
        ci = commit
-       st = status -sb
-       status = status -sb
+       st = status
        co = checkout
+       cp = cherry-pick
        rb = rebase
        rbi = rebase -i
        rba = rebase --abort
@@ -12,14 +12,23 @@
        log = log --decorate
        lol = log --graph --decorate --pretty=oneline --abbrev-commit
        lola = log --all  --graph --decorate --pretty=oneline --abbrev-commit
+       lols = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+       lolc = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+       lold = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
        svnci = svn dcommit
        svnup = svn fetch
        svnst = log trunk..
        br = !sh -c 'git branch --color $* | grep -v " z-"' -
+       brs = for-each-ref --sort=-committerdate refs/heads/ --format='%(color:red)%(refname:short)%(color:reset) %(committerdate) %(authorname) - %(contents:subject)'
        diffn = diff --no-ext-diff
        dt = difftool
        resolve = !git-resolve
        wtf = !git-wtf
+       rsh = reset --hard
+       rss = reset --soft
+       f = "!git ls-files | grep -i"
+       grepa = grep -Ii
+       la = "!git config -l | grep alias | cut -c 7-"
 [user]
 	email = andrew.t.shaw@gmail.com
 	name = Andrew Shaw
