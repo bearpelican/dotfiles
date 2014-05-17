@@ -17,6 +17,9 @@
 ;key bindings
 (global-set-key (kbd "C-M-h") 'backward-kill-word)
 
+;commenting region
+(global-set-key (kbd "C-c C-c") 'comment-or-uncomment-region)
+
 ;ediff
 (setq ediff-split-window-function 'split-window-horizontally)
 
