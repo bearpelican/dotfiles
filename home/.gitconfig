@@ -29,6 +29,8 @@
        f = "!git ls-files | grep -i"
        grepa = grep -Ii
        la = "!git config -l | grep alias | cut -c 7-"
+       cia = commit -a --amend
+       
 [user]
 	email = andrew.t.shaw@gmail.com
 	name = Andrew Shaw
