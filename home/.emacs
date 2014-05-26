@@ -17,9 +17,6 @@
 ;key bindings
 (global-set-key (kbd "C-M-h") 'backward-kill-word)
 
-;commenting region
-(global-set-key (kbd "C-c C-c") 'comment-or-uncomment-region)
-
 ;ediff
 (setq ediff-split-window-function 'split-window-horizontally)
 
@@ -49,4 +46,5 @@
 (add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode))
 
 ;haskell
-(custom-set-variables '(haskell-mode-hook '(turn-on-haskell-indentation)))
+(custom-set-variables '(haskell-mode-hook '(turn-on-haskell-doc-mode)))
+(custom-set-variables '(haskell-mode-hook '(turn-on-haskell-indent)))
