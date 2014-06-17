@@ -1,5 +1,31 @@
-;disable scratch message on load
-;(setq initial-scratch-message nil)
+;loading default packages
+; list the packages you want
+(setq package-list '(autopair haskell-mode json-mode magit slime))
+
+; list the repositories containing them
+(setq package-archives '(("elpa" . "http://tromey.com/elpa/")
+                         ("gnu" . "http://elpa.gnu.org/packages/")
+                         ("marmalade" . "http://marmalade-repo.org/packages/")))
+
+; activate all the packages (in particular autoloads)
+(package-initialize)
+
+; fetch the list of packages available 
+(or (file-exists-p package-user-dir)
+  (package-refresh-contents))
+
+; install the missing packages
+(dolist (package package-list)
+  (unless (package-installed-p package)
+    (package-install package)))
+
+
+
+
+
+
+
+
 
 ;disable backup
 (setq backup-inhibited t)
@@ -29,9 +55,6 @@
 ;ediff
 (setq ediff-split-window-function 'split-window-horizontally)
 
-; activate all the packages (in particular autoloads)
-(package-initialize)
-
 ;autopair
 (require 'autopair)
 (autopair-global-mode) ;; enable auopair in all buffers
@@ -40,19 +63,6 @@
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("marmalade" . "http://marmalade-repo.org/packages/")
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
-
-;lisp
-(setq inferior-lisp-program "sbcl")
-(add-to-list 'load-path "~/quicklisp")
-(require 'slime-autoloads)
-(slime-setup)
-
-;jade
-(add-to-list 'load-path "~/.emacs.d/vendor/jade-mode")
-(require 'sws-mode)
-(require 'jade-mode)    
-(add-to-list 'auto-mode-alist '("\\.styl$" . sws-mode))
-(add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode))
 
 ;haskell
 (custom-set-variables '(haskell-mode-hook '(turn-on-haskell-doc-mode)))
