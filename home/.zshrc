@@ -189,7 +189,7 @@ zstyle ':completion:*:processes-names' command 'ps axho command'
 # complete hosts from known hosts of ssh, users from list
 knownhosts=( ${${${${(f)"$(<$HOME/.ssh/known_hosts)"}:#[0-9]*}%%\ *}%%,*} )
 zstyle ':completion:*' hosts $knownhosts
-zstyle ':completion:*' users hedgehog timsu tsu palantir
+zstyle ':completion:*' users ashaw bearpelican
 
 zstyle ':completion:*:*:(^rm):*:*files' ignored-patterns '*?.o' '*?.c~' \
     '*?.old' '*?.pro'
