@@ -14,6 +14,15 @@
     (ad-enable-advice 'isearch-repeat 'after 'isearch-no-fail)
     (ad-activate 'isearch-repeat)))
 
+;prompt to save directory if it doesn't exist
+(add-hook 'before-save-hook
+          (lambda ()
+            (when buffer-file-name
+              (let ((dir (file-name-directory buffer-file-name)))
+                (when (and (not (file-exists-p dir))
+                           (y-or-n-p (format "Directory %s does not exist. Create it?" dir)))
+                  (make-directory dir t))))))
+
 ;key bindings
 (global-set-key (kbd "C-M-h") 'backward-kill-word)
 
@@ -48,3 +57,8 @@
 ;haskell
 (custom-set-variables '(haskell-mode-hook '(turn-on-haskell-doc-mode)))
 (custom-set-variables '(haskell-mode-hook '(turn-on-haskell-indent)))
+
+;projectile project management
+(projectile-global-mode)
+
+
