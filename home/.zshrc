@@ -223,4 +223,4 @@ export EDITOR=emacsclient
 alias e='emacsclient -c'
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-PATH=/opt/local/bin:/opt/local/sbin:$PATH
+PATH=/usr/local/bin:$PATH
