@@ -1,6 +1,6 @@
 ;loading default packages
 ; list the packages you want
-(setq package-list '(autopair haskell-mode json-mode magit slime))
+(setq package-list '(autopair haskell-mode json-mode magit slime projectile))
 
 ; list the repositories containing them
 (setq package-archives '(("elpa" . "http://tromey.com/elpa/")
