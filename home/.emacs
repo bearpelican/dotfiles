@@ -62,6 +62,7 @@
 
 ;key bindings
 (global-set-key (kbd "C-M-h") 'backward-kill-word)
+(global-set-key (kbd "C-x a r") 'align-regexp)
 
 ;ediff
 (setq ediff-split-window-function 'split-window-horizontally)
