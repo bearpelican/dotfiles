@@ -4,7 +4,6 @@ ZSH=$HOME/.oh-my-zsh
 #zsh plugins
 plugins=(git osx)
 
-
 ################################################################### zsh
 HISTFILE=~/.histfile
 HISTSIZE=10000
@@ -95,6 +94,7 @@ alias egrep='egrep -n --color'
 alias cd="pushd >/dev/null"
 alias bd="popd >/dev/null"
 alias g="git"
+alias cdd='print "cd $(pwd)" | pbcopy'
 if [ -f ~/.aliases ]; then
     source ~/.aliases
 fi
@@ -222,5 +222,6 @@ export ALTERNATE_EDITOR=""
 export EDITOR=emacsclient
 alias e='emacsclient -c'
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=/usr/local/bin:$PATH
+export PATH=$HOME/.cabal/bin:$PATH
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
