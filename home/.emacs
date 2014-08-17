@@ -1,6 +1,6 @@
 ;loading default packages
 ; list the packages you want
-(setq package-list '(autopair haskell-mode json-mode magit slime projectile))
+(setq package-list '(autopair solarized-theme haskell-mode hamlet-mode json-mode magit slime projectile))
 
 ; list the repositories containing them
 (setq package-archives '(("elpa" . "http://tromey.com/elpa/")
@@ -20,9 +20,8 @@
     (package-install package)))
 
 
-
-
-
+; solarized
+(load-theme 'solarized-dark t)
 
 
 
@@ -64,6 +63,12 @@
 (global-set-key (kbd "C-M-h") 'backward-kill-word)
 (global-set-key (kbd "C-x a r") 'align-regexp)
 
+;tabs
+(setq-default tab-width 1)
+(setq-default indent-tabs-mode nil)
+(setq indent-line-function 'insert-tab)
+(setq tab-stop-list (number-sequence 2 400 2))
+
 ;ediff
 (setq ediff-split-window-function 'split-window-horizontally)
 
@@ -76,11 +81,31 @@
                          ("marmalade" . "http://marmalade-repo.org/packages/")
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
 
+
+
 ;haskell
-(custom-set-variables '(haskell-mode-hook '(turn-on-haskell-doc-mode)))
-(custom-set-variables '(haskell-mode-hook '(turn-on-haskell-indent)))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes (quote ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
+ '(haskell-mode-hook (quote (turn-on-haskell-indent)))
+ '(safe-local-variable-values (quote ((haskell-process-use-ghci . t) (haskell-indent-spaces . 4)))))
+
+(require 'hamlet-mode)
+(add-hook 'haml-mode-hook
+               (lambda ()
+                 (setq indent-tabs-mode nil)
+                 (define-key haml-mode-map "\C-m" 'newline-and-indent)))
 
 ;projectile project management
 (projectile-global-mode)
 
 
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
