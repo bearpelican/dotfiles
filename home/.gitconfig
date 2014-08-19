@@ -60,3 +60,5 @@
 [mergetool "ediff"]
 	cmd = ~/.emacs.d/extensions/ediff.sh $LOCAL $REMOTE $MERGED
 	trustExitCode = true
+[diff "localizablestrings"]
+      textconv = "iconv -f utf-16 -t utf-8"
