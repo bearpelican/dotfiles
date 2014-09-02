@@ -22,9 +22,7 @@
 
 ; solarized
 (load-theme 'solarized-dark t)
-
-
-
+(menu-bar-mode 0)
 
 ;disable backup
 (setq backup-inhibited t)

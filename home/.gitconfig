@@ -10,11 +10,13 @@
        rba = rebase --abort
        rbc = rebase --continue
        log = log --decorate
-       lol = log --graph --decorate --pretty=oneline --abbrev-commit
-       lola = log --all  --graph --decorate --pretty=oneline --abbrev-commit
-       lols = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
-       lolc = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
-       lold = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+#       lol = log --graph --decorate --pretty=oneline --abbrev-commit
+#       lola = log --all  --graph --decorate --pretty=oneline --abbrev-commit
+       lols = log --pretty=format:"%C(auto)%h%C(auto)%d\\ %Creset%s%Cblue\\ [%cn\\ -\\ %ad]" --decorate
+       lolc = "!git lols --numstat"
+       lold = "!git lols --decorate --date=relative"
+       lol = "!git lold --graph"
+       lola = "!git lold --graph --all"
        svnci = svn dcommit
        svnup = svn fetch
        svnst = log trunk..
