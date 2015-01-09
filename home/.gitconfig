@@ -36,6 +36,7 @@
        copr = !git fetch origin refs/pull/$1/head:pr/$1 && git checkout pr/$1
        fcm = !git fetch origin && git co origin/master
        frm = !git fetch origin && git rebase origin/master
+       cleanup = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"
 [user]
 	email = andrew.t.shaw@gmail.com
 	name = Andrew Shaw
