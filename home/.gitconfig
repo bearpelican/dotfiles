@@ -23,7 +23,7 @@
        br = !sh -c 'git branch --color $* | grep -v " z-"' -
        brs = for-each-ref --sort=-committerdate refs/heads/ --format='%(color:red)%(refname:short)%(color:reset) %(committerdate) %(authorname) - %(contents:subject)'
        diffn = diff --no-ext-diff
-       dt = difftool
+       dt = difftool -y
        resolve = !git-resolve
        wtf = !git-wtf
        rsh = reset --hard
@@ -38,7 +38,7 @@
        frm = !git fetch origin && git rebase origin/master
        cleanup = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"
 [user]
-	email = andrew.t.shaw@gmail.com
+	email = ashaw@yahoo-inc.com
 	name = Andrew Shaw
 [color]
     ui = auto
@@ -51,17 +51,28 @@
 	editor = emacs
 [push]
 	default = matching
+
+# [diff]
+# #	tool = vimdiff
+# 	tool = ediff
+# #	external = ~/tools/opendiff-git.sh
+# [difftool "ediff"]
+# 	cmd = ~/.emacs.d/extensions/ediff.sh $LOCAL $REMOTE $MERGED
+# [merge]
+# #	tool = xxdiff
+# 	tool = ediff
+# [mergetool "ediff"]
+# 	cmd = ~/.emacs.d/extensions/ediff.sh $LOCAL $REMOTE $MERGED
+# 	trustExitCode = true
+# [diff "localizablestrings"]
+#       textconv = "iconv -f utf-16 -t utf-8"
+
 [diff]
-#	tool = vimdiff
-	tool = ediff
-#	external = ~/tools/opendiff-git.sh
-[difftool "ediff"]
-	cmd = ~/.emacs.d/extensions/ediff.sh $LOCAL $REMOTE $MERGED
+  tool = Kaleidoscope
+[difftool "Kaleidoscope"]
+  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [merge]
-#	tool = xxdiff
-	tool = ediff
-[mergetool "ediff"]
-	cmd = ~/.emacs.d/extensions/ediff.sh $LOCAL $REMOTE $MERGED
-	trustExitCode = true
-[diff "localizablestrings"]
-      textconv = "iconv -f utf-16 -t utf-8"
+  tool = Kaleidoscope
+[mergetool "Kaleidoscope"]
+  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+  trustExitCode = true
