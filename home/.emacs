@@ -1,4 +1,4 @@
-;loading default packages
+; loading default packages
 ; list the packages you want
 (setq package-list '(autopair solarized-theme haskell-mode hamlet-mode json-mode magit slime projectile))
 
@@ -21,21 +21,23 @@
 
 
 ; solarized
+;(load-theme 'wombat t)
 (load-theme 'solarized-dark t)
+(setq solarized-high-contrast-mode-line t)
 
 ;; Enable mouse support
-(unless window-system
-  (require 'mouse)
-  (xterm-mouse-mode t)
-  (global-set-key [mouse-4] '(lambda ()
-                              (interactive)
-                              (scroll-down 1)))
-  (global-set-key [mouse-5] '(lambda ()
-                              (interactive)
-                              (scroll-up 1)))
-  (defun track-mouse (e))
-  (setq mouse-sel-mode t)
-)
+;; (unless window-system
+;;   (require 'mouse)
+;;   (xterm-mouse-mode t)
+;;   (global-set-key [mouse-4] '(lambda ()
+;;                               (interactive)
+;;                               (scroll-down 1)))
+;;   (global-set-key [mouse-5] '(lambda ()
+;;                               (interactive)
+;;                               (scroll-up 1)))
+;;   (defun track-mouse (e))
+;;   (setq mouse-sel-mode t)
+;; )
 
 ; Disable menu bar
 (menu-bar-mode 0)
@@ -78,10 +80,10 @@
 (global-set-key (kbd "C-x a r") 'align-regexp)
 
 ;tabs
-(setq-default tab-width 1)
+;; (setq-default tab-width 1)
 (setq-default indent-tabs-mode nil)
-(setq indent-line-function 'insert-tab)
-(setq tab-stop-list (number-sequence 2 400 2))
+;; (setq indent-line-function 'insert-tab)
+;; (setq tab-stop-list (number-sequence 2 400 2))
 
 ;ediff
 (setq ediff-split-window-function 'split-window-horizontally)
@@ -103,7 +105,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-safe-themes (quote ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
  '(haskell-mode-hook (quote (turn-on-haskell-indent)))
  '(safe-local-variable-values (quote ((haskell-process-use-ghci . t) (haskell-indent-spaces . 4)))))
 
