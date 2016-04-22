@@ -221,7 +221,19 @@ zstyle '*' single-ignored show
 export ALTERNATE_EDITOR=""
 export EDITOR=emacsclient
 alias e='emacsclient -c'
+alias python='python3'
 
 PATH=/usr/local/bin:$PATH
 export PATH=$HOME/.cabal/bin:$PATH
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+# GO
+export GOROOT=/usr/local/go
+export GOPATH=~/go/src/arrow/.godeps:~/go
+export GOBIN=~/go/bin
+export ANDROID_HOME=/usr/local/opt/android-sdk
+export PATH=$PATH:$GOROOT/bin:$GOBIN
+export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
+export YQLPLUS_HOME=/Users/ashaw/Projects/web/esports/yqlplus/yqlplus
+export PATH="$PATH:$HOME/bin"
+export PGDATA=/usr/local/var/postgres
