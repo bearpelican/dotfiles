@@ -12,6 +12,7 @@ unsetopt BG_NICE            # do NOT nice bg commands
 setopt CORRECT              # command CORRECTION
 setopt EXTENDED_HISTORY     # puts timestamps in the history
 setopt ALL_EXPORT
+setopt hist_ignore_all_dups # prevent's recording of duplicates
 bindkey -e
 zstyle :compinstall filename '~/.zshrc'
 autoload -Uz compinit
@@ -221,7 +222,18 @@ zstyle '*' single-ignored show
 export ALTERNATE_EDITOR=""
 export EDITOR=emacsclient
 alias e='emacsclient -c'
+alias pycharm='/Applications/PyCharm\ CE.app/Contents/MacOS/pycharm'
 
+# Paths
 PATH=/usr/local/bin:$PATH
+export PATH=$PATH:~/.local/bin
 export PATH=$HOME/.cabal/bin:$PATH
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="/Users/andrewshaw/miniconda3/bin:$PATH"
+JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/andrewshaw/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/andrewshaw/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/andrewshaw/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/andrewshaw/google-cloud-sdk/completion.zsh.inc'; fi
