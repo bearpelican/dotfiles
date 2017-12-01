@@ -1,9 +1,9 @@
 ;loading default packages
 ; list the packages you want
-(setq package-list '(autopair solarized-theme haskell-mode hamlet-mode json-mode magit slime projectile))
+(setq package-list '(autopair solarized-theme haskell-mode json-mode magit slime projectile))
 
 ; list the repositories containing them
-(setq package-archives '(("elpa" . "http://tromey.com/elpa/")
+(setq package-archives '(("melpa" . "http://melpa.org/packages/")
                          ("gnu" . "http://elpa.gnu.org/packages/")
                          ("marmalade" . "http://marmalade-repo.org/packages/")))
 
@@ -106,12 +106,6 @@
  '(custom-safe-themes (quote ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
  '(haskell-mode-hook (quote (turn-on-haskell-indent)))
  '(safe-local-variable-values (quote ((haskell-process-use-ghci . t) (haskell-indent-spaces . 4)))))
-
-(require 'hamlet-mode)
-(add-hook 'haml-mode-hook
-               (lambda ()
-                 (setq indent-tabs-mode nil)
-                 (define-key haml-mode-map "\C-m" 'newline-and-indent)))
 
 ;projectile project management
 (projectile-global-mode)
