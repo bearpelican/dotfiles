@@ -1,0 +1,42 @@
+{
+    // [missing schema title]
+    // [missing schema description]
+    "notebook:clear-cell-output": {
+      "command": "notebook:clear-cell-output",
+      "keys": [
+        "Ctrl K"
+      ],
+      "selector": ".jp-Notebook:focus"
+    },
+    
+    
+    // [missing schema title]
+    // [missing schema description]
+    "kernelmenu:restart-and-clear": {
+      "command": "kernelmenu:restart-and-clear",
+      "keys": [
+        "Ctrl Shift R"
+      ],
+      "selector": "[data-jp-kernel-user]:focus"
+    },
+        
+    // [missing schema title]
+    // [missing schema description]
+    "application:activate-next-tab": {
+      "command": "application:activate-next-tab",
+      "keys": [
+        "Ctrl ]"
+      ],
+      "selector": "body"
+    },
+
+    // [missing schema title]
+    // [missing schema description]
+    "application:activate-previous-tab": {
+      "command": "application:activate-previous-tab",
+      "keys": [
+        "Ctrl ["
+      ],
+      "selector": "body"
+    }
+}
