@@ -200,7 +200,7 @@ if ! shopt -oq posix; then
 fi
 
 # added by Anaconda3 4.4.0 installer
-export PATH="/home/paperspace/anaconda3/bin:$PATH"
+export PATH=~/anaconda3/bin:$PATH
 
 
 # based on http://vvv.tobiassjosten.net/bash/dynamic-prompt-with-git-and-ansi-colors/
