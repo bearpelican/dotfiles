@@ -1,4 +1,3 @@
-
 #
 # ADDITIONAL BASH
 #
@@ -140,7 +139,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[38;5;3m\]\w\[\033[00m\]\$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -199,9 +198,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# added by Anaconda3 4.4.0 installer
-export PATH=~/anaconda3/bin:$PATH
-
 
 # based on http://vvv.tobiassjosten.net/bash/dynamic-prompt-with-git-and-ansi-colors/
 # - conda env added
@@ -242,12 +238,14 @@ git_prompt ()
 
 
 # Function to get conda env.
-conda_env ()
-{
-    regex='$\(([^)]+)\)'
-    [[ $PS1 =~ $regex ]]
-    echo "$BASH_REMATCH"
-}
+#conda_env ()
+#{
+#    regex='$\(([^)]+)\)'
+#    [[ $PS1 =~ $regex ]]
+#    echo "$BASH_REMATCH"
+#}
 
 # Thy holy prompt.
-PROMPT_COMMAND='PS1="$(conda_env)${c_user}\u${c_reset}@${c_user}\h${c_reset}:${c_path}\w${c_reset}$(git_prompt)\$ "'
+#PROMPT_COMMAND='PS1="$(conda_env)${c_user}\u${c_reset}@${c_user}\h${c_reset}:${c_path}\w${c_reset}$(git_prompt)\$ "'
+. /home/paperspace/anaconda3/etc/profile.d/conda.sh
+conda activate fastai
