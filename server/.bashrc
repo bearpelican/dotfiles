@@ -248,4 +248,4 @@ git_prompt ()
 # Thy holy prompt.
 #PROMPT_COMMAND='PS1="$(conda_env)${c_user}\u${c_reset}@${c_user}\h${c_reset}:${c_path}\w${c_reset}$(git_prompt)\$ "'
 . /home/paperspace/anaconda3/etc/profile.d/conda.sh
-conda activate fastai
+conda activate fastai_v1
