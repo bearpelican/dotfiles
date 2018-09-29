@@ -40,28 +40,29 @@ sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/
 echo "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64 /" | sudo tee /etc/apt/sources.list.d/cuda.list
 
 sudo apt-get update  -y
-sudo apt-get -o Dpkg::Options::="--force-overwrite" install cuda-9-2 cuda-drivers -y
+sudo apt-get -o Dpkg::Options::="--force-overwrite" install cuda cuda-drivers -y
 
 sudo ldconfig
 nvidia-smi
 
-# Install cudnn 7.2.1
-CUDNN_FILE=cudnn-9.2-linux-x64-v7.2.1.38.tgz
+# Install cudnn 7.3.1
+CUDNN_FILE=cudnn-10.0-linux-x64-v7.3.1.20.tgz
 wget https://s3-us-west-2.amazonaws.com/ashaw-fastai-imagenet/$CUDNN_FILE
 tar -xf $CUDNN_FILE
-sudo cp -R ~/cuda/include/* /usr/local/cuda-9.2/include
-sudo cp -R ~/cuda/lib64/* /usr/local/cuda-9.2/lib64
+sudo cp -R ~/cuda/include/* /usr/local/cuda/include
+sudo cp -R ~/cuda/lib64/* /usr/local/cuda/lib64
 rm $CUDNN_FILE
 rm -rf ~/cuda
 
 # Install nccl 2.2.13 - might not need this
-wget https://s3-us-west-2.amazonaws.com/ashaw-fastai-imagenet/nccl_2.2.13-1%2Bcuda9.2_x86_64.txz
-tar -xf nccl_2.2.13-1+cuda9.2_x86_64.txz
-sudo cp -R ~/nccl_2.2.13-1+cuda9.2_x86_64/* /usr/local/cuda-9.2/targets/x86_64-linux/
-# sudo cp -R ~/nccl_2.2.13-1+cuda9.2_x86_64/* /lib/nccl/cuda-9.2
+NCCL_FILE=nccl_2.3.5-2+cuda10.0_x86_64
+S3_FILE=$(sed "s/+/%2B/g" <<<$NCCL_FILE).txz
+wget https://s3-us-west-2.amazonaws.com/ashaw-fastai-imagenet/$S3_FILE
+tar -xf $NCCL_FILE.txz
+sudo cp -R ~/$NCCL_FILE/* /usr/local/cuda/targets/x86_64-linux/
 sudo ldconfig
-rm nccl_2.2.13-1+cuda9.2_x86_64.txz
-rm -rf nccl_2.2.13-1+cuda9.2_x86_64
+rm $NCCL_FILE.txz
+rm -rf ~/$NCCL_FILE
 
 sudo apt-get install libcupti-dev
 
