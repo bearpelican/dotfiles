@@ -4,9 +4,10 @@
 
 
 # install anaconda
-curl -O https://repo.anaconda.com/archive/Anaconda3-5.2.0-Linux-x86_64.sh
-bash Anaconda3-5.2.0-Linux-x86_64.sh -b
-rm Anaconda3-5.2.0-Linux-x86_64.sh
+CONDA_SH=Anaconda3-5.2.0-Linux-x86_64.sh
+curl -O https://repo.anaconda.com/archive/$CONDA_SH
+bash $CONDA_SH -b
+rm $CONDA_SH
 . ~/anaconda3/etc/profile.d/conda.sh
 
 # update conda and python
@@ -49,10 +50,13 @@ CC="cc -mavx2" $PIP_ENV install -U --force-reinstall pillow-simd
 
 
 # Create fastai environment
-conda create -n fastai_v1 --clone pytorch_source
-FASTAI_PIP_ENV=~/anaconda3/envs/fastai_v1/bin/pip
-FASTAI_PIP_ENV install opencv-python isoweek pandas-summary seaborn graphviz
+conda create -n fastai --clone pytorch_source
+FASTAI_PIP_ENV=~/anaconda3/envs/fastai/bin/pip
+# FASTAI_PIP_ENV install opencv-python isoweek pandas-summary seaborn graphviz
 # conda install seaborn python-graphviz -y
-git clone https://github.com/fastai/fastai_v1.git
-ln -s ~/fastai/fastai_v1 ~/anaconda3/envs/fastai_v1/lib/python3.7/site-packages
+git clone https://github.com/fastai/fastai.git
+pushd fastai
+tools/run-after-git-clone
+FASTAI_PIP_ENV install -e .
+popd fastai
 
