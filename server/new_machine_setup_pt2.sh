@@ -19,7 +19,7 @@ conda install python -y
 # Create pytorch source environment
 ENV=pytorch_source
 ENV_BIN=~/anaconda3/envs/$ENV/bin
-conda create -n $ENV -y
+conda create -n $ENV python=3.7 -y
 conda install --name $ENV python
 conda install --name $ENV numpy pyyaml mkl mkl-include setuptools cmake cffi typing -y
 conda install --name $ENV -c mingfeima mkldnn -y
