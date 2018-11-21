@@ -238,16 +238,5 @@ git_prompt ()
     echo "[$git_color$git_branch${c_reset}]"
 }
 
-
-# Function to get conda env.
-#conda_env ()
-#{
-#    regex='$\(([^)]+)\)'
-#    [[ $PS1 =~ $regex ]]
-#    echo "$BASH_REMATCH"
-#}
-
-# Thy holy prompt.
-#PROMPT_COMMAND='PS1="$(conda_env)${c_user}\u${c_reset}@${c_user}\h${c_reset}:${c_path}\w${c_reset}$(git_prompt)\$ "'
+# Conda
 . /home/ubuntu/anaconda3/etc/profile.d/conda.sh
-conda activate pytorch_source

@@ -45,7 +45,8 @@ $PIP_ENV install tensorboardX
 # seems like it's faster without the top version
 $PIP_ENV uninstall pillow -y
 sudo apt-get install libjpeg-turbo8-dev
-CC="cc -mavx2" $PIP_ENV install -U --force-reinstall pillow-simd
+conda uninstall --force jpeg libtiff -y -n $ENV
+CC="cc -mavx2" $PIP_ENV --no-cache-dir install -U --force-reinstall pillow-simd
 
 
 
