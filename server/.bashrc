@@ -24,11 +24,13 @@ cdweights(){ cd ${WEIGHTS}/; }
 # CUDA
 #
 # export CUDA_HOME=/usr/local/cuda-8.0
-export CUDA_HOME=/usr/local/cuda-9.0 
+export CUDA_HOME=/usr/local/cuda
 export LD_LIBRARY_PATH=${CUDA_HOME}/lib64
 PATH=${CUDA_HOME}/bin:${PATH} 
 export PATH
 
+# PATH
+export PATH="$PATH:$HOME/bin"
 
 #
 # HELPERS

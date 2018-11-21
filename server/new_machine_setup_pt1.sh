@@ -10,15 +10,17 @@ sudo apt-get autoremove -y
 sudo apt-get autoclean -y
 
 # link bashrc things
-git clone https://github.com/bearpelican/dotfiles.git
-mv ~/.bashrc ~/.bashrc.bak
-ln -s ~/dotfiles/server/.bashrc ~/.bashrc
-source ~/.bashrc
-ln -bfs ~/dotfiles/home/.gitconfig ~/.gitconfig # backup, force, symbolic
-mkdir -p .jupyter/nbconfig
-ln -bfs ~/dotfiles/jupyter/notebook.json ~/.jupyter/nbconfig/notebook.json
-ln -bfs ~/dotfiles/server/.tmux.conf ~/.tmux.conf
-tmux source-file ~/.tmux.conf
+if [ ! -d ~/dotfiles ]; then
+    git clone https://github.com/bearpelican/dotfiles.git
+    mv ~/.bashrc ~/.bashrc.bak
+    ln -s ~/dotfiles/server/.bashrc ~/.bashrc
+    source ~/.bashrc
+    ln -bfs ~/dotfiles/home/.gitconfig ~/.gitconfig # backup, force, symbolic
+    mkdir -p .jupyter/nbconfig
+    ln -bfs ~/dotfiles/jupyter/notebook.json ~/.jupyter/nbconfig/notebook.json
+    ln -bfs ~/dotfiles/server/.tmux.conf ~/.tmux.conf
+    tmux source-file ~/.tmux.conf
+fi
 
 # generate keygen for ssh
 if [ ! -f ~/.ssh/id_rsa.pub ]; then
