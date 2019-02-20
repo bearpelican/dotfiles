@@ -1,11 +1,14 @@
 {
-    "keys": {
-      "command": {
-        "bind": {
-          "ctrl-k": "jupyter-notebook:clear-cell-output",
-          "ctrl-shift-r": "jupyter-notebook:restart-kernel-and-clear-output",
-          "ctrl-s": "jupyter-notebook:interrupt-kernel"
-        }
-      }
-    }
-  }
+	"keys": {
+		"command": {
+			"bind": {
+				"ctrl-k": "jupyter-notebook:clear-cell-output",
+				"ctrl-shift-r": "jupyter-notebook:restart-kernel-and-clear-output",
+				"ctrl-s": "jupyter-notebook:interrupt-kernel"
+			}
+		}
+	},
+	"load_extensions": {
+		"jupyter-js-widgets/extension": true
+	}
+}
