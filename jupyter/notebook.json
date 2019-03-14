@@ -3,13 +3,10 @@
     "command": {
       "bind": {
         "ctrl-k": "jupyter-notebook:clear-cell-output",
-        "ctrl-shift-r": "jupyter-notebook:restart-kernel-and-clear-output",
         "ctrl-s": "jupyter-notebook:interrupt-kernel",
-        "r,a": "jupyter-notebook:run-all-cells-above"
-      },
-      "unbind": [
-        "r"
-      ]
+        "ctrl-r,a": "jupyter-notebook:run-all-cells-above",
+        "ctrl-r,c": "jupyter-notebook:restart-kernel-and-clear-output"
+      }
     }
   },
   "load_extensions": {
