@@ -1,3 +1,5 @@
+# https://github.com/fastai/dotfiles/blob/master/.vimrc
+
 set background=dark
 
 set nocompatible
@@ -6,12 +8,11 @@ filetype off
 "set ttyfast
 set mouse=a
 set t_Co=256
-"python3 from powerline.vim import setup as powerline_setup
-"python3 powerline_setup()
-"python3 del powerline_setup
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
 
 set foldcolumn=3
-set tags+=~/anaconda3/lib/python3.6/site-packages/torch/tags
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
