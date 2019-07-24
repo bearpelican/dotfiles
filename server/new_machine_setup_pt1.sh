@@ -48,7 +48,8 @@ sudo ldconfig
 nvidia-smi
 
 # Install cudnn 7.6
-CUDNN_FILE=cudnn-10.1-linux-x64-v7.6.0.64.tgz
+
+CUDNN_FILE=cudnn-10.1-linux-x64-v7.6.2.24.tgz
 wget https://s3-us-west-2.amazonaws.com/ashaw-fastai-imagenet/$CUDNN_FILE
 tar -xf $CUDNN_FILE
 sudo cp -R ~/cuda/include/* /usr/local/cuda/include
@@ -56,7 +57,7 @@ sudo cp -R ~/cuda/lib64/* /usr/local/cuda/lib64
 rm $CUDNN_FILE
 rm -rf ~/cuda
 
-# Install nccl 2.4.2 - might not need this
+# Install nccl 2.4.7 - might not need this
 NCCL_FILE=nccl_2.4.7-1+cuda10.1_x86_64
 S3_FILE=$(sed "s/+/%2B/g" <<<$NCCL_FILE).txz
 wget https://s3-us-west-2.amazonaws.com/ashaw-fastai-imagenet/$S3_FILE
