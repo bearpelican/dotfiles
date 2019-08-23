@@ -57,8 +57,7 @@ sudo cp -R ~/cuda/lib64/* /usr/local/cuda/lib64
 rm $CUDNN_FILE
 rm -rf ~/cuda
 
-# Install nccl 2.4.7 - might not need this
-NCCL_FILE=nccl_2.4.7-1+cuda10.1_x86_64
+NCCL_FILE=nccl_2.4.8-1+cuda10.1_x86_64
 S3_FILE=$(sed "s/+/%2B/g" <<<$NCCL_FILE).txz
 wget https://s3-us-west-2.amazonaws.com/ashaw-fastai-imagenet/$S3_FILE
 tar -xf $NCCL_FILE.txz
