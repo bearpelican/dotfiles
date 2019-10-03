@@ -4,7 +4,7 @@
 
 
 # install anaconda
-CONDA_SH=Anaconda3-5.2.0-Linux-x86_64.sh
+CONDA_SH=Anaconda3-2019.07-Linux-x86_64.sh
 curl -O https://repo.anaconda.com/archive/$CONDA_SH
 bash $CONDA_SH -b
 rm $CONDA_SH
