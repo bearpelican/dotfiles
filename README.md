@@ -12,4 +12,4 @@ Setting up dotfiles in aws
 6. ln -s dotfiles/home/.gitconfig .gitconfig
 7. ln -s dotfiles/server/.tmux.conf .tmux.conf
 8. mkdir -p .jupyter/nbconfig
-9. ln -s dotfiles/home/notebook.json .jupyter/nbconfig/notebook.json
+9. ln -s dotfiles/jupyter/notebook.json .jupyter/nbconfig/notebook.json
