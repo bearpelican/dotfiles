@@ -13,17 +13,8 @@ alias gs='git status'
 alias gc='git commit -am'
 
 #
-# ML DIRS
-#
-export DATA=/data
-export WEIGHTS=/weights
-cddata(){ cd ${DATA}/; }
-cdweights(){ cd ${WEIGHTS}/; }
-
-#
 # CUDA
 #
-# export CUDA_HOME=/usr/local/cuda-8.0
 export CUDA_HOME=/usr/local/cuda
 export LD_LIBRARY_PATH=${CUDA_HOME}/lib64
 PATH=${CUDA_HOME}/bin:${PATH} 
@@ -36,45 +27,11 @@ export PATH="$PATH:$HOME/bin"
 # HELPERS
 #
 
-# gcloud
-alias gconfig='gcloud config configurations activate' 
-alias gssh='gcloud compute ssh' 
-
-# files
-alias sampletree='mkdir -p sample/{train,test,valid}'
-lsn(){ matchdir=/home/paperspace/; find  -type f | grep -v sample | shuf -n  | awk -F/home/paperspace '{print .}' ; }
-cpn(){ matchdir=/home/paperspace/; find  -type f | grep -v sample | shuf -n  | awk -F/home/paperspace '{print . sample}' | xargs -t -n2 cp ; }
-mvn(){ matchdir=/home/paperspace/; todir=/home/paperspace/; find  -type f | grep -v sample | shuf -n  | awk -F/home/paperspace -v todir= '{print gpu-setup.sh todir}' | xargs -t -n2 mv ; }
-cpnh(){ matchdir=/home/paperspace/; find  -type f | grep -v sample | head -n  | awk -F/home/paperspace '{print . sample}' | xargs -t -n2 cp ; }
-mvnh(){ matchdir=/home/paperspace/; todir=/home/paperspace/; find  -type f | grep -v sample | head -n  | awk -F/home/paperspace -v todir= '{print gpu-setup.sh todir}' | xargs -t -n2 mv ; }
-cpnt(){ matchdir=/home/paperspace/; find  -type f | grep -v sample | tail -n  | awk -F/home/paperspace '{print . sample}' | xargs -t -n2 cp ; }
-mvnt(){ matchdir=/home/paperspace/; todir=/home/paperspace/; find  -type f | grep -v sample | tail -n  | awk -F/home/paperspace -v todir= '{print gpu-setup.sh todir}' | xargs -t -n2 mv ; }
-
-
 # anaconda
 alias sd='source deactivate'
 alias sa='source activate'
 alias jnb='jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser'
 alias jlb='jupyter lab --ip=0.0.0.0 --port=8888 --no-browser'
-
-# keras
-kerastf() {
-    rm -rf ~/.keras/keras.json
-    cp ~/.keras/keras.json.tensor ~/.keras/keras.json
-    cat ~/.keras/keras.json
-}
-kerasth() {
-    rm -rf ~/.keras/keras.json
-    cp ~/.keras/keras.json.theano ~/.keras/keras.json
-    cat ~/.keras/keras.json
-}
-kerastfth() {
-    rm -rf ~/.keras/keras.json
-    cp ~/.keras/keras.json.tensorth ~/.keras/keras.json
-    cat ~/.keras/keras.json
-}
-
-
 
 #
 # INITIAL BASH
@@ -241,12 +198,6 @@ git_prompt ()
 # Conda
 . $HOME/anaconda3/etc/profile.d/conda.sh
 conda activate base
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/ubuntu/google-cloud-sdk/path.bash.inc' ]; then . '/home/ubuntu/google-cloud-sdk/path.bash.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/ubuntu/google-cloud-sdk/completion.bash.inc' ]; then . '/home/ubuntu/google-cloud-sdk/completion.bash.inc'; fi
 
 # Offscreen rendering for music21 and musescore
 export QT_QPA_PLATFORM='offscreen'
