@@ -239,7 +239,8 @@ git_prompt ()
 }
 
 # Conda
-. /home/ubuntu/anaconda3/etc/profile.d/conda.sh
+. $HOME/anaconda3/etc/profile.d/conda.sh
+conda activate base
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/ubuntu/google-cloud-sdk/path.bash.inc' ]; then . '/home/ubuntu/google-cloud-sdk/path.bash.inc'; fi
