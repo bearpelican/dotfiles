@@ -196,7 +196,11 @@ git_prompt ()
 }
 
 # Conda
-. $HOME/anaconda3/etc/profile.d/conda.sh
+if [[ -d "$HOME/miniconda3" ]]; then
+    . $HOME/miniconda3/etc/profile.d/conda.sh
+elif [[ -d "$HOME/anaconda3" ]]; then
+    . $HOME/anaconda3/etc/profile.d/conda.sh
+fi
 conda activate base
 
 # Offscreen rendering for music21 and musescore
