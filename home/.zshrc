@@ -47,13 +47,19 @@ findup() {
 function precmd() {
     PROMPT=$'%{\e[0;32m%}%B'$HOSTNAME$'%b%{\e[0m%}:%{\e[0;35m%}%B%~%b%{\e[0m%}'
     RPS1=$'%{\e[0;33m%}%B(%D{%m-%d %H:%M})%b%{\e[0m%}'
-    
+
     local _git _branch
 
     _git=`findup .git 2>/dev/null`
     if test -n "$_git"; then
         _branch=`sed -e 's,.*/,,' $_git/HEAD 2>/dev/null`
-        RPS1=$'%{\e[0;36m%}'($_branch)$'%{\e[0m%}'$RPS1
+        RPS1=$'%{\e[0;36m%}'($_branch)" "$'%{\e[0m%}'$RPS1
+    fi
+
+    if test -n "$CONDA_DEFAULT_ENV"; then
+        RPS1=$'%{\e[0;32m%}'($CONDA_DEFAULT_ENV)" "$RPS1
+    else
+        RPS1=$'%{\e[0;30m%}'("none")" "$RPS1
     fi
 
     export PROMPT=$PROMPT"%(!.#.>) "
