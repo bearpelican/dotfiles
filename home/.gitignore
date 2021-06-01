@@ -1,0 +1,11 @@
+# jetbrains directory
+/.idea
+*.iml
+
+# vim swap file
+*.swp
+*.*~
+~*.*
+
+# MacOS
+.DS_Store
