@@ -13,3 +13,10 @@ Setting up dotfiles in aws
 7. ln -s dotfiles/server/.tmux.conf .tmux.conf
 8. mkdir -p .jupyter/nbconfig
 9. ln -s dotfiles/jupyter/notebook.json .jupyter/nbconfig/notebook.json
+
+
+Mac Shortcuts:
+Text editing: emacs shortcuts
+Finder Path editing:
+* Go to file path: Command + Shift + G
+* Copy file path: Right click on file, Hold Option
