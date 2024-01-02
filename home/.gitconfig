@@ -1,41 +1,42 @@
 [alias]
-       lc = log ORIG_HEAD.. --stat --no-merges
-       cp = cherry-pick
-       ci = commit
-       st = status
-       co = checkout
-       cp = cherry-pick
-       rb = rebase
-       rbi = rebase -i
-       rba = rebase --abort
-       rbc = rebase --continue
-       log = log --decorate
-#       lol = log --graph --decorate --pretty=oneline --abbrev-commit
-#       lola = log --all  --graph --decorate --pretty=oneline --abbrev-commit
-       lols = log --pretty=format:"%C(auto)%h%C(auto)%d\\ %Creset%s%Cblue\\ [%cn\\ -\\ %ad]" --decorate
-       lolc = "!git lols --numstat"
-       lold = "!git lols --decorate --date=relative"
-       lol = "!git lold --graph"
-       lola = "!git lold --graph --all"
-       svnci = svn dcommit
-       svnup = svn fetch
-       svnst = log trunk..
-       br = !sh -c 'git branch --color $* | grep -v " z-"' -
-       brs = for-each-ref --sort=-committerdate refs/heads/ --format='%(color:red)%(refname:short)%(color:reset) %(committerdate) %(authorname) - %(contents:subject)'
-       diffn = diff --no-ext-diff
-       dt = difftool
-       resolve = !git-resolve
-       wtf = !git-wtf
-       rsh = reset --hard
-       rss = reset --soft
-       f = "!git ls-files | grep -i"
-       grepa = grep -Ii
-       la = "!git config -l | grep alias | cut -c 7-"
-       cia = commit -a --amend
+    log = log --decorate
+    lols = log --pretty=format:"%C(auto)%h%C(auto)%d\\ %Creset%s%Cblue\\ [%cn\\ -\\ %ad]" --decorate
+    # Show commits with stats on num lines changed
+    lolc = "!git lols --numstat"
+    # Show commit log with relative data
+    lold = "!git lols --decorate --date=relative"
+    # Show commit log for current branch only
+    lol = "!git lold --graph"
+    # Show commit log with all branches
+    lola = "!git lold --graph --all"
+    br = !sh -c 'git branch --color $* | grep -v " z-"' -
+    # git branch local - sort by commit
+    brl = for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
+    # git branch remote - sort by commit
+    brr = for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
+    diffn = diff --no-ext-diff
+    dt = difftool
+    resolve = !git-resolve
+    wtf = !git-wtf
+    rsh = reset --hard
+    rss = reset --soft
+    f = "!git ls-files | grep -i"
+    grepa = grep -Ii
+    la = "!git config -l | grep alias | cut -c 7-"
+    cia = commit -a --amend
+    lc = log ORIG_HEAD.. --stat --no-merges
+    cp = cherry-pick
+    ci = commit
+    st = status
+    co = checkout
+    rb = rebase
+    rbi = rebase -i
+    rba = rebase --abort
+    rbc = rebase --continue
 
-       copr = !git fetch origin refs/pull/$1/head:pr/$1 && git checkout pr/$1
-       fcm = !git fetch origin && git co origin/master
-       frm = !git fetch origin && git rebase origin/master
+    copr = !git fetch origin refs/pull/$1/head:pr/$1 && git checkout pr/$1
+    fcm = !git fetch origin && git co origin/master
+    frm = !git fetch origin && git rebase origin/master
 [user]
 	email = andrew.t.shaw@gmail.com
 	name = Andrew Shaw
@@ -51,16 +52,10 @@
 [push]
 	default = matching
 [diff]
-#	tool = vimdiff
-	tool = ediff
-#	external = ~/tools/opendiff-git.sh
-[difftool "ediff"]
-	cmd = ~/.emacs.d/extensions/ediff.sh $LOCAL $REMOTE $MERGED
+	tool = vimdiff
+#	tool = ediff
 [merge]
 #	tool = xxdiff
 	tool = ediff
-[mergetool "ediff"]
-	cmd = ~/.emacs.d/extensions/ediff.sh $LOCAL $REMOTE $MERGED
-	trustExitCode = true
 [diff "localizablestrings"]
       textconv = "iconv -f utf-16 -t utf-8"
