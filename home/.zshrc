@@ -47,11 +47,13 @@ bindkey '^[v' edit-command-line                 # alt-v: edit line in $EDITOR
 if [[ $(uname) == Darwin ]]; then
     alias ls='ls -G'
     export LSCOLORS=dxfxcxdxbxegedabagacad
+    alias cdd='print "cd $(pwd)" | pbcopy'   # macOS only
 else
     alias ls='ls --color'
 fi
 alias ll='ls -l'
 alias la='ls -A'
+alias grep='grep --color'
 alias g='git'
 
 ################################################################### local
