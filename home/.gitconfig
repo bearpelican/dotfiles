@@ -6,15 +6,23 @@
 	st = status
 	co = checkout
 	ci = commit
-	br = branch
 	cp = cherry-pick
 	rb = rebase
 	rbi = rebase -i
 	rba = rebase --abort
 	rbc = rebase --continue
-	# pretty one-line log, current branch / all branches
-	lol = log --graph --decorate --date=relative --pretty=format:"%C(auto)%h%C(auto)%d\\ %Creset%s%Cblue\\ [%cn\\ -\\ %ad]"
-	lola = "!git lol --all"
+
+	# log — lols is the base format; the rest layer on top
+	lols = log --decorate --pretty=format:"%C(auto)%h%C(auto)%d\\ %Creset%s%Cblue\\ [%cn\\ -\\ %ad]"
+	lold = "!git lols --date=relative"
+	lol  = "!git lold --graph"
+	lola = "!git lold --graph --all"
+	lolc = "!git lols --numstat"
+
+	# branch — sorted by last commit
+	br  = branch
+	brs = for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
+	brr = for-each-ref --sort=committerdate refs/remotes/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(color:blue)%(authorname)%(color:reset) (%(color:green)%(committerdate:relative)%(color:reset))'
 
 [color]
 	ui = auto
